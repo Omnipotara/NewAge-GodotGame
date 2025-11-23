@@ -5,3 +5,4 @@
 [node name="MainScene" type="Node2D"]
 
 [node name="Character" parent="." instance=ExtResource("1_w2twt")]
+speed = null
