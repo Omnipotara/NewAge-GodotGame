@@ -4,29 +4,39 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var direction : Vector2 = Vector2.ZERO
-var last_direction : Vector2 = Vector2.ZERO
+var last_direction : Vector2 = Vector2.DOWN
 
 func _physics_process(delta: float) -> void:
-	player_movement(delta)
+	player_movement()
 	
 func get_direction() -> Vector2:
 	direction.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
 	direction.y = Input.get_action_strength("Down") - Input.get_action_strength("Up")
-	return direction.normalized()
+	
+	if direction != Vector2.ZERO:
+		direction = direction.normalized()
+	
+	return direction
 
-func player_movement(delta: float) -> void:
+func player_movement() -> void:
 	direction = get_direction()
 	
 	if direction == Vector2.ZERO:
 		velocity = Vector2.ZERO
-		play_idle()
+		
 	else:
 		last_direction = direction
 		velocity = direction * speed
-		play_walk()
-		
-	move_and_slide()
 	
+	movement_animation()
+	move_and_slide()
+
+func movement_animation() -> void:
+	if direction == Vector2.ZERO:
+		play_idle()
+	else:
+		play_walk()
+
 func play_idle() -> void:
 	if last_direction.x > 0:
 		animated_sprite_2d.flip_h = false
