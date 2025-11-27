@@ -305,15 +305,21 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4g1q"]
-size = Vector2(122, 124)
+size = Vector2(26, 29)
 
 [node name="Character" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_rkhd4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_fs386")
 animation = &"walk_up"
 frame_progress = 0.7085051
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16.5)
 shape = SubResource("RectangleShape2D_i4g1q")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.3, 1.3)
