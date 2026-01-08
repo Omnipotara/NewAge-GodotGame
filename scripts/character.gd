@@ -7,9 +7,9 @@ var direction : Vector2 = Vector2.ZERO
 var last_direction : Vector2 = Vector2.DOWN
 
 func _physics_process(delta: float) -> void:
-	player_movement()
+	player_movement() # Funkcija za kretanje se poziva svakog frame-a
 	
-func get_direction() -> void:
+func get_direction() -> void: # Preko ove funkcije se uzima pravac kretanja
 	direction.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
 	direction.y = Input.get_action_strength("Down") - Input.get_action_strength("Up")
 	

@@ -309,6 +309,8 @@ size = Vector2(26, 29)
 
 [node name="Character" type="CharacterBody2D"]
 y_sort_enabled = true
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_rkhd4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

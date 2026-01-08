@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://kdfcooua66o5"]
+[gd_scene load_steps=4 format=4 uid="uid://kdfcooua66o5"]
 
 [ext_resource type="TileSet" uid="uid://d3t0snn6lr5xk" path="res://scenes/tilesets/main_set.tres" id="1_pw63i"]
 [ext_resource type="PackedScene" uid="uid://bnxlifbt55rq8" path="res://scenes/character.tscn" id="1_w2twt"]
+[ext_resource type="PackedScene" uid="uid://85vneruj33gt" path="res://scenes/enemy_1.tscn" id="3_7ykc4"]
 
 [node name="MainScene" type="Node2D"]
 y_sort_enabled = true
@@ -18,3 +19,6 @@ tile_map_data = PackedByteArray("AAACAAEAAAAAABcAAAD//wMAAAAJAAgAAAD//wQAAAAJAAk
 tile_set = ExtResource("1_pw63i")
 
 [node name="Character" parent="." instance=ExtResource("1_w2twt")]
+
+[node name="enemy1" parent="." instance=ExtResource("3_7ykc4")]
+position = Vector2(476, 246)
